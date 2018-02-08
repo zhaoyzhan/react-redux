@@ -1,0 +1,18 @@
+{
+  // 运用babel的3个插件，es2015,stage-3,react （即npm install时的那3个插件）
+  "presets": ["es2015", "stage-3", 'react'],
+  // 下面是配置按需加载那个插件的（babel-plugin-import）
+  // 是从蚂蚁金服抄的，大致意思就是，css、less等样式文件需要按需加载
+  // js也要按需加载
+  "plugins": [["import",[
+    {
+        "libraryName": "antd",
+        "libraryDirectory": "lib",
+        "style": true
+    },
+   {
+        "libraryName": "antd-mobile",
+        "libraryDirectory": "component",
+   },
+  ]]]
+}

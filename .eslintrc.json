@@ -1,0 +1,48 @@
+{
+	// 项目的环境
+	// 意思就是以下配置的这些环境，它们自身的全局变量,eslint认为是存在的，比如jquery的$,如果下面不配置jquery:true,项目中直接使用$,eslint会认为$未定义
+	"env": {
+		"browser": true, // 浏览器环境，window变量等
+		"commonjs": true, // commonjs环境，require方法等
+		"es6": true, // es6环境，各种es6新功能
+		"jquery": true // jquery, 就是$符号
+	},
+	// 继承某个官方定义好的检查规则
+	// 下面用的是react的规则，必须配这个，否则eslint识别不了react
+	"extends": "plugin:react/recommended",
+	// 设置各种解析器
+	"parserOptions": {
+		"ecmaVersion": 8, // js版本，最新的8（即JS2017）
+		"ecmaFeatures": { // 额外的语言特性
+			"impliedStrict": false, // 全局启用严格模式
+			"experimentalObjectRestSpread": true, // 支持...余运算符，就是ES6里面那个“...”解构赋值
+			"jsx": true // jsx语法
+		},
+		"sourceType": "module" // 代码类型：模块化。因为我们经常用import,export等
+	},
+	// 第3方插件
+	"plugins": [
+		"react" // 支持react(即eslint-plugin-react)，上面配置了jsx,但react语法不仅仅是jsx，所以需要这个
+	],
+	// 自定义的检查规则
+	"rules": {
+		// 字符串的引号必须用单引号
+		"quotes": [
+			"error",
+			"single"
+		],
+		// 每一句代码结束必须加分号
+		"semi": [
+			"error",
+			"always"
+		],
+		"no-cond-assign": "error", // 禁止条件表达式中出现赋值操作符
+		"no-debugger": "error", // 不允许代码中出现debugger
+		"no-dupe-args": "error", // function禁止重名参数
+		"no-caller": "error", // 禁用 arguments.caller 或 arguments.callee
+		"no-invalid-this": "error", // 禁止全局this
+		"no-unmodified-loop-condition": "error", // 禁止死循环
+		"no-with": "error", // 禁止使用with语句
+		"no-catch-shadow": "error" // 禁止 catch 子句的参数与外层作用域中的变量同名
+	}
+}
